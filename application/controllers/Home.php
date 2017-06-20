@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		// here call application form 
-		$this->load->view('v_temp');
+		$this->load->view('login');
 	}
         
     public function login()
