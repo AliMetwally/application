@@ -6,6 +6,7 @@ class Home extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('model_db');
+		
 	}
 
 
@@ -30,11 +31,24 @@ class Home extends CI_Controller {
 			$input_password = set_value('password');
 
 			// server validation 
+			// get user record
+			$cols = ['username', 'password'];
+			$where = array('username' => $input_username, 'password'=> $input_password);
+			$user = $this->model_db->getSingleRow('users', $cols, $where);
+			
+			if($user){
+				// store the session
+				$this->session->set_userdata('username', $user->username);				
+				$this->session->set_userdata('isLogin', true);				
+				// set status = 1
+				$json['status'] = 1;
+			}
+			else{
+				$json['msg'] = 'Incorrect User Name or Password';
+				$json['status'] = 0;
 
-
-			$json['status'] = 1;
-			$json['user'] = $input_username;
-			$json['password'] = $input_password;
+			}
+			
 		}
 		else{ // if form validation fails
 			$json['msg'] = "One or more required fields are empty or not correctly filled";
@@ -46,4 +60,4 @@ class Home extends CI_Controller {
 
         
         
-}
+} // end of home.php 

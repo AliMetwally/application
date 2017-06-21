@@ -63,7 +63,7 @@
                             <!--username-->
                             <div class="form-group">
                               <label class="sr-only" for='username'>User Name</label>
-                              <input type="text" class="form-control" name="username" placeholder="Enter User Name">                                                         
+                              <input type="text" class="form-control" name="username" placeholder="Enter User Name" autocomplete="off">                                                         
                             </div>
 
                             <!--password-->

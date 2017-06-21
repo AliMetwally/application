@@ -36,6 +36,14 @@ class Model_DB extends CI_Model
         return FALSE;
     }
     /****************************************************/
+    /**
+     * Undocumented function
+     *
+     * @param string $table
+     * @param array $columns
+     * @param assoc array $where
+     * @return void
+     */
     public function getSingleRow($table, $columns, $where='')
     {
         $this->db->select($columns);

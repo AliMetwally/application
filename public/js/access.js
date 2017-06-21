@@ -21,6 +21,7 @@ $(function () {
             handleLogin(username, password, function(returnedData){
                 if(returnedData.status === 1){
                     authMsg.html('Authenticated. Redirecting....');
+                    loginRedirect();
                 }
                 else{
                     // display error msg 
@@ -28,10 +29,11 @@ $(function () {
                 }
             });
         }
+    } // end of onsubmit
 
-        
-
-        
+    function loginRedirect()
+    {
+        window.location.replace(appRoot + 'dashboard');
     }
 
-});
+}); // end of jQuery
