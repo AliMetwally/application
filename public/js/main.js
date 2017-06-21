@@ -6,7 +6,29 @@
 var appRoot = setAppRoot('application', 'application');
 
 
+function handleLogin(username, password, callback){
+    var jsonToReturn ="";
+    $.ajax(appRoot+'home/login', {
+        method: "POST",
+        data: {username:username, password:password}
+    }).done(function (returnedData){
+        if(returnedData.status === 1){
+            jsonToReturn = {status:1, msg:'Authanticated ...', user:returnedData.user};
+        }
+        else{
+            jsonToReturn = {status:0, msg:'Invalid email/password combination'};
+        }
 
+        typeof(callback) === "function" ? callback(jsonToReturn) : "";
+
+    }).fail(function (){
+        var msg = "Log in failed. Please check your internet connection and try again later.";
+        jsonToReturn = {status:0, msg:msg};
+        typeof(callback) === "function" ? callback(jsonToReturn) : "";
+    });
+
+    
+}
 
 /************** Plug-ins ****************************** */
 /**

@@ -55,13 +55,11 @@
                 <div class="col-sm-6 col-sm-offset-3">
                     <!--authantiaction msg-->
                     <div class="bg-primary text-center">
-                        <span id='errMsg'>
-                            error
-                        </span>
+                        <span id='errMsg'></span>
                     </div>
 
                     <div class='form-bottom'>
-                        <form id='loginForm'>
+                        <form id='loginForm'>                        
                             <!--username-->
                             <div class="form-group">
                               <label class="sr-only" for='username'>User Name</label>
@@ -81,5 +79,13 @@
             </div>
         </div>
         </div>
+
+        <script>
+            
+        </script>
+
+        <!--scripts-->
+        <script src="<?= base_url('public/js/main.js');?>"></script>
+        <script src="<?= base_url('public/js/access.js');?>"></script>
     </body>
 </html>
